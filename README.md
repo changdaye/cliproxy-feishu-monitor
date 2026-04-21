@@ -1,5 +1,10 @@
 # cliproxy-feishu-monitor
 
+[![CI](https://github.com/changdaye/cliproxy-feishu-monitor/actions/workflows/ci.yml/badge.svg)](https://github.com/changdaye/cliproxy-feishu-monitor/actions/workflows/ci.yml)
+[![Release](https://github.com/changdaye/cliproxy-feishu-monitor/actions/workflows/release.yml/badge.svg)](https://github.com/changdaye/cliproxy-feishu-monitor/actions/workflows/release.yml)
+[![Latest Release](https://img.shields.io/github/v/release/changdaye/cliproxy-feishu-monitor)](https://github.com/changdaye/cliproxy-feishu-monitor/releases/latest)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
 ## 项目导航
 
 - `docs/requirements.md`：需求文档
@@ -8,6 +13,9 @@
 - `SECURITY.md`：安全说明
 - `deploy/`：部署与发布脚本
 - `.github/workflows/release.yml`：tag 自动发版流程
+- `.github/workflows/ci.yml`：主分支 / PR 测试流程
+- `CODE_OF_CONDUCT.md`：社区行为准则
+- `.github/CODEOWNERS`：默认代码所有者
 
 ---
 

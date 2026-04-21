@@ -1,0 +1,38 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Run tests
+        run: go test ./...
+
+      - name: Build binary
+        run: go build -o dist/cliproxy-feishu-monitor .
+
+      - name: Check deploy scripts syntax
+        run: |
+          bash -n deploy/install.sh
+          bash -n deploy/deploy-from-tar.sh
+          bash -n deploy/build-release.sh
+          bash -n deploy/release.sh
+          bash -n deploy/run-once.sh
+          bash -n deploy/service-status.sh
+          bash -n deploy/service-logs.sh
