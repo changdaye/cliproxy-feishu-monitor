@@ -32,7 +32,7 @@
 
 ```text
 状态概览
-来源: http://34.146.152.231:8317
+来源: http://YOUR_CPA_HOST:8317
 时间: 2026-04-21 19:52:15 CST
 
 账号总数 166 | 充足 14 | 高 94 | 中 25 | 低 12 | 耗尽 9 | 禁用 5 | 异常 7
@@ -67,7 +67,7 @@ cp local.runtime.json.example local.runtime.json
 
 ```json
 {
-  "cpa_base_url": "http://34.146.152.231:8317/management.html#/login",
+  "cpa_base_url": "http://YOUR_CPA_HOST:8317/management.html#/login",
   "management_key": "replace-me",
   "feishu_webhook": "https://open.feishu.cn/open-apis/bot/v2/hook/replace-me",
   "feishu_secret": "replace-me",
@@ -160,7 +160,7 @@ dist/cliproxy-feishu-monitor-linux-x86_64.tar.gz
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/changdaye/cliproxy-feishu-monitor/main/deploy/deploy-from-tar.sh -o deploy-from-tar.sh && chmod +x deploy-from-tar.sh && \
-CPA_BASE_URL="http://34.146.152.231:8317/management.html#/login" \
+CPA_BASE_URL="http://YOUR_CPA_HOST:8317/management.html#/login" \
 CPA_MANAGEMENT_KEY="你的管理密钥" \
 FEISHU_WEBHOOK="你的飞书 webhook" \
 FEISHU_SECRET="你的飞书签名密钥" \
@@ -201,7 +201,7 @@ dist/cliproxy-feishu-monitor-linux-x86_64.tar.gz
 curl -fsSL https://raw.githubusercontent.com/REPLACE_ME/cliproxy-feishu-monitor/main/deploy/deploy-from-tar.sh -o deploy-from-tar.sh
 chmod +x deploy-from-tar.sh
 
-CPA_BASE_URL="http://34.146.152.231:8317/management.html#/login" \
+CPA_BASE_URL="http://YOUR_CPA_HOST:8317/management.html#/login" \
 CPA_MANAGEMENT_KEY="replace-me" \
 FEISHU_WEBHOOK="https://open.feishu.cn/open-apis/bot/v2/hook/replace-me" \
 FEISHU_SECRET="replace-me" \

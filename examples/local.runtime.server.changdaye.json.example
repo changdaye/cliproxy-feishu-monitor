@@ -1,5 +1,5 @@
 {
-  "cpa_base_url": "http://34.146.152.231:8317/management.html#/login",
+  "cpa_base_url": "http://YOUR_CPA_HOST:8317/management.html#/login",
   "management_key": "replace-with-your-management-key",
   "feishu_webhook": "https://open.feishu.cn/open-apis/bot/v2/hook/replace-me",
   "feishu_secret": "replace-me",

@@ -133,7 +133,7 @@ func TestBuildFeishuTextMessage(t *testing.T) {
 		TokenUsage:       tokenUsageSummary{Available: true, Last7Hours: 40845322, Last24Hours: 97312161, Last7Days: 226996537, AllTime: 297376388},
 	}
 
-	text := buildSummaryTextMessage(sum, "http://34.146.152.231:8317", time.Date(2026, 4, 21, 19, 0, 0, 0, time.FixedZone("CST", 8*3600)))
+	text := buildSummaryTextMessage(sum, "http://example-cpa-host:8317", time.Date(2026, 4, 21, 19, 0, 0, 0, time.FixedZone("CST", 8*3600)))
 	checks := []string{"状态概览", "账号总数 166", "充足 40", "高 77", "中 26", "低 11", "耗尽 7", "7日免费等效: 12283%", "7小时 Token 用量: 40,845,322", "累计 Token 用量: 297,376,388"}
 	for _, want := range checks {
 		if !strings.Contains(text, want) {
