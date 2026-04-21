@@ -1,5 +1,16 @@
 # cliproxy-feishu-monitor
 
+## 项目导航
+
+- `docs/requirements.md`：需求文档
+- `CHANGELOG.md`：版本变更记录
+- `CONTRIBUTING.md`：贡献说明
+- `SECURITY.md`：安全说明
+- `deploy/`：部署与发布脚本
+- `.github/workflows/release.yml`：tag 自动发版流程
+
+---
+
 一个面向服务器部署的 CLIProxyAPI 监控服务。
 
 功能目标：
