@@ -23,6 +23,7 @@ cp "$APP_DIR/deploy/service-status.sh" "$RELEASE_DIR/service-status.sh"
 cp "$APP_DIR/deploy/service-logs.sh" "$RELEASE_DIR/service-logs.sh"
 cp "$APP_DIR/deploy/deploy-from-tar.sh" "$RELEASE_DIR/deploy-from-tar.sh"
 cp "$APP_DIR/local.runtime.server.json.example" "$RELEASE_DIR/local.runtime.server.json.example"
+cp "$APP_DIR/examples/local.runtime.server.changdaye.json.example" "$RELEASE_DIR/local.runtime.server.changdaye.json.example"
 chmod +x "$RELEASE_DIR/cliproxy-feishu-monitor" "$RELEASE_DIR/install-service.sh" "$RELEASE_DIR/run-once.sh" "$RELEASE_DIR/service-status.sh" "$RELEASE_DIR/service-logs.sh" "$RELEASE_DIR/deploy-from-tar.sh"
 
 tar -C "$DIST_DIR" -czf "$ARCHIVE_PATH" "$(basename "$RELEASE_DIR")"

@@ -331,3 +331,58 @@ go test ./...
 - 判断下次心跳是否到期
 - 心跳里携带最近一次成功汇总摘要
 - 连续失败时发送异常提醒
+
+
+---
+
+## 自动发版
+
+现在仓库已经支持 **push tag 自动发 GitHub Release**。
+
+### 本地发版脚本
+
+```bash
+bash deploy/release.sh v0.1.1
+```
+
+这个脚本会自动：
+- 运行 `go test ./...`
+- 构建 release tar 包
+- 创建 git tag
+- push tag 到 GitHub
+
+随后 GitHub Actions 会自动：
+- 再跑一次测试
+- 构建 Linux release tar 包
+- 创建对应 GitHub Release
+- 上传 `cliproxy-feishu-monitor-linux-x86_64.tar.gz`
+
+### 手动触发 Actions
+
+你也可以在 GitHub Actions 页面手动触发 `release` 工作流，并填写版本号，例如：
+
+```text
+v0.1.1
+```
+
+---
+
+## 服务器专用配置成品模板
+
+仓库里现在有两份服务器模板：
+
+- `local.runtime.server.json.example`
+- `examples/local.runtime.server.changdaye.json.example`
+
+如果你的服务器就是当前这套 CPA 地址，推荐直接：
+
+```bash
+cp examples/local.runtime.server.changdaye.json.example local.runtime.json
+```
+
+然后只改：
+- `management_key`
+- `feishu_webhook`
+- `feishu_secret`
+
+如果你是用 release 包部署，解压后同样会带上这份模板。

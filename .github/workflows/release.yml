@@ -1,0 +1,68 @@
+name: release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag, e.g. v0.1.1'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve ref for workflow_dispatch
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          git fetch --tags --force origin
+          git checkout "${{ inputs.version }}"
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Run tests
+        run: go test ./...
+
+      - name: Build release tarball
+        run: bash deploy/build-release.sh
+
+      - name: Resolve version
+        id: version
+        run: |
+          if [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
+            echo "value=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create or update GitHub release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ steps.version.outputs.value }}
+        run: |
+          if gh release view "$VERSION" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload "$VERSION" \
+              dist/cliproxy-feishu-monitor-linux-x86_64.tar.gz \
+              --repo "$GITHUB_REPOSITORY" \
+              --clobber
+          else
+            gh release create "$VERSION" \
+              dist/cliproxy-feishu-monitor-linux-x86_64.tar.gz \
+              --repo "$GITHUB_REPOSITORY" \
+              --title "$VERSION" \
+              --notes "Automated release for $VERSION"
+          fi
