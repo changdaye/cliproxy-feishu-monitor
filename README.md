@@ -154,6 +154,28 @@ dist/cliproxy-feishu-monitor-linux-x86_64.tar.gz
 
 ---
 
+## 最短部署命令
+
+如果你只想要一条最短可用命令，在服务器上直接执行下面这段即可：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/changdaye/cliproxy-feishu-monitor/main/deploy/deploy-from-tar.sh -o deploy-from-tar.sh && chmod +x deploy-from-tar.sh && \
+CPA_BASE_URL="http://34.146.152.231:8317/management.html#/login" \
+CPA_MANAGEMENT_KEY="你的管理密钥" \
+FEISHU_WEBHOOK="你的飞书 webhook" \
+FEISHU_SECRET="你的飞书签名密钥" \
+bash deploy-from-tar.sh --tar-url "https://github.com/changdaye/cliproxy-feishu-monitor/releases/download/v0.1.1/cliproxy-feishu-monitor-linux-x86_64.tar.gz"
+```
+
+执行完成后查看服务：
+
+```bash
+systemctl status cliproxy-feishu-monitor
+journalctl -u cliproxy-feishu-monitor -f
+```
+
+---
+
 ## 服务器快速部署（推荐）
 
 下面以 Linux x86_64 服务器为例。
