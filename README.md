@@ -164,7 +164,7 @@ CPA_BASE_URL="http://YOUR_CPA_HOST:8317/management.html#/login" \
 CPA_MANAGEMENT_KEY="你的管理密钥" \
 FEISHU_WEBHOOK="你的飞书 webhook" \
 FEISHU_SECRET="你的飞书签名密钥" \
-bash deploy-from-tar.sh --tar-url "https://github.com/changdaye/cliproxy-feishu-monitor/releases/download/v0.1.1/cliproxy-feishu-monitor-linux-x86_64.tar.gz"
+bash deploy-from-tar.sh --tar-url "https://github.com/changdaye/cliproxy-feishu-monitor/releases/download/v0.1.2/cliproxy-feishu-monitor-linux-x86_64.tar.gz"
 ```
 
 执行完成后查看服务：
@@ -364,7 +364,7 @@ go test ./...
 ### 本地发版脚本
 
 ```bash
-bash deploy/release.sh v0.1.1
+bash deploy/release.sh v0.1.2
 ```
 
 这个脚本会自动：
@@ -384,7 +384,7 @@ bash deploy/release.sh v0.1.1
 你也可以在 GitHub Actions 页面手动触发 `release` 工作流，并填写版本号，例如：
 
 ```text
-v0.1.1
+v0.1.2
 ```
 
 ---

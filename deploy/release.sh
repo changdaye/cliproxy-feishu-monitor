@@ -8,12 +8,12 @@ REMOTE="${REMOTE:-origin}"
 PUSH_BRANCH="${PUSH_BRANCH:-0}"
 
 if [[ -z "$VERSION" ]]; then
-  echo "Usage: bash deploy/release.sh v0.1.1" >&2
+  echo "Usage: bash deploy/release.sh v0.1.2" >&2
   exit 1
 fi
 
 if [[ ! "$VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-  echo "[ERROR] Version must look like v0.1.1" >&2
+  echo "[ERROR] Version must look like v0.1.2" >&2
   exit 1
 fi
 
