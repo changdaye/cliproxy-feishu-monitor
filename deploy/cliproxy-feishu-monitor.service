@@ -1,0 +1,13 @@
+[Unit]
+Description=CLIProxyAPI Feishu Monitor
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/cliproxy-feishu-monitor
+ExecStart=/opt/cliproxy-feishu-monitor/cliproxy-feishu-monitor serve
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

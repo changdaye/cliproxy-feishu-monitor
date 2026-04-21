@@ -1,0 +1,7 @@
+dist/
+data/
+local.runtime.json
+runtime.local.json
+config.local.json
+*.log
+.DS_Store

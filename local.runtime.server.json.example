@@ -1,0 +1,15 @@
+{
+  "cpa_base_url": "http://34.146.152.231:8317/management.html#/login",
+  "management_key": "changdaye",
+  "feishu_webhook": "https://open.feishu.cn/open-apis/bot/v2/hook/replace-me",
+  "feishu_secret": "replace-me",
+  "poll_interval_hours": 6,
+  "heartbeat_interval_hours": 3,
+  "heartbeat_enabled": true,
+  "startup_notification_enabled": true,
+  "run_summary_on_startup": true,
+  "request_timeout_seconds": 30,
+  "concurrency": 8,
+  "failure_alert_threshold": 3,
+  "state_path": "data/runtime-state.json"
+}
